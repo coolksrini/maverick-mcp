@@ -6,9 +6,9 @@ readme = "README.md"
 requires-python = ">=3.12,<3.13"
 dependencies = [
     # Core MCP and server dependencies
-    # Updated to latest for MCP SDK schema compatibility
+    # FastMCP 2.13.3 requires mcp<1.23, so we use compatible versions
     "fastmcp>=2.13.3",
-    "mcp>=1.23.3",
+    "mcp>=1.21.2,<1.23",
     "fastapi>=0.115.12",
     "uvicorn>=0.35.0",
     "gunicorn>=23.0.0",
