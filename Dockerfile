@@ -29,10 +29,10 @@ RUN wget https://github.com/ta-lib/ta-lib/releases/download/v0.6.4/ta-lib-0.6.4-
   && rm -rf ta-lib-0.6.4-src.tar.gz ta-lib-0.6.4/
 
 # Copy dependency files first for better caching
-COPY pyproject.toml uv.lock README.md ./
+COPY pyproject.toml README.md ./
 
-# Install Python dependencies
-RUN uv sync --frozen
+# Install Python dependencies (regenerate lockfile if needed)
+RUN uv lock && uv sync
 
 # Copy application code
 COPY maverick_mcp ./maverick_mcp
